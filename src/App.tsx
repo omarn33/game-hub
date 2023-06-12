@@ -10,12 +10,21 @@ function App() {
 				base: `"nav" "main"`,
 				lg: `"nav nav" "aside main"`, // 1024px
 			}}
+			/* Responsive Layout
+			 * For base screens, have 1 column
+			 * For large screens, have 2 columns, one of 200 px
+			 * and the second, taking the remainder of the screen
+			 */
+			templateColumns={{
+				base: "1fr",
+				lg: "200px 1fr",
+			}}
 		>
 			<GridItem area="nav">
 				<Navbar />
 			</GridItem>
 			<Show above="lg">
-				<GridItem area="aside">
+				<GridItem area="aside" paddingX={5}>
 					<GenreList />
 				</GridItem>
 			</Show>
